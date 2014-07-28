@@ -22,6 +22,4 @@ describe Game do
 
     expect(result).to eql('FuzzBuzz')
   end
-
-
 end
