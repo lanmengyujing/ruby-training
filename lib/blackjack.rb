@@ -11,11 +11,11 @@ class Blackjack
       result += common_sum(common_number)
     end
 
-    special_num =array.select do |x|
+    special_cards =array.select do |x|
       /a/.match(x.downcase)
     end
-    if special_num.size >0
-      result = add_special_num(result, special_num)
+    if special_cards.size >0
+      result = add_special_card(result, special_cards)
     end
     result
   end
@@ -33,25 +33,25 @@ class Blackjack
     result
   end
 
-  def add_special_num(result, special_num)
-    if (special_num.size>1)
-      result = special_num_bigger_than_two(result, special_num)
+  def add_special_card(result, special_cards)
+    if (special_cards.size>1)
+      result = special_card_bigger_than_two(result, special_cards)
     else
-      result = only_one_special_num(result)
+      result = only_one_special_card(result)
     end
     result
   end
 
-  def special_num_bigger_than_two(result, special_num)
-    if (result + special_num.size-1 +11) < 21
-      result+= special_num.size-1 +11
+  def special_card_bigger_than_two(result, special_cards)
+    if (result + special_cards.size-1 +11) < 21
+      result+= special_cards.size-1 +11
     else
-      result+= special_num.size
+      result+= special_cards.size
     end
     result
   end
 
-  def only_one_special_num(result)
+  def only_one_special_card(result)
     ((result +11) <= 21) ? result +=11 : result +=1
     result
   end
