@@ -20,7 +20,7 @@ describe HashSpliter do
   it 'should return raise exception' do
     hash = {:a => 1, :b => 2, :c => 3, :d => 4, :e => 5, :f => 6}
 
-    expect { subject.split_hash_by_key(hash, 'n') }.to raise_error
+    expect { subject.split_hash_by_key(hash, 'b') }.to raise_error
   end
 
 end
