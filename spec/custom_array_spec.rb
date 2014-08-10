@@ -32,7 +32,6 @@ describe CustomArray do
     array = (1..6).to_a
     result = array.group_by_new { |i| i%3 }
 
-    expect(result).to eql ({1=>[1, 4], 2=>[2, 5], 0=>[3, 6]})
+    expect(result).to eql ({1 => [1, 4], 2 => [2, 5], 0 => [3, 6]})
   end
-
 end

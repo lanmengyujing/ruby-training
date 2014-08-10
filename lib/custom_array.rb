@@ -13,8 +13,7 @@ class Array
     if (sum)
       result = sum
     else
-      result = self[0]
-      self.delete_at(0)
+      result =  self.shift
     end
 
     if block_given?
@@ -37,7 +36,20 @@ class Array
     hash
   end
 
+
+  def inject1(arg=shift)
+    if arg.is_a? Symbol
+      a = self.shift
+      each {|e| a = a.send(arg, e) }
+    else
+      a = arg
+      each {|e| a = yield a, e }
+    end
+    a
+  end
 end
+
+p [1,2,3].inject1(:+)
 
 class CustomArray
   def self.split_array array, parts
